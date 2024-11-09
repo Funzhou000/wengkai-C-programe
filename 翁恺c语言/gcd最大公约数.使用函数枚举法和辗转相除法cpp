@@ -1,0 +1,60 @@
+#define  _CRT_SECURE_NO_WARNINGS
+//1.枚举法，2.辗转相除法
+#include <iostream> // 标准输入输出流
+#include <vector>   // 标准模板库中的向量
+#include <string>   // C++ 字符串类
+#include <cmath>    // 数学函数
+#include<time.h>
+#include<stdlib.h>
+//以下是枚举法
+
+
+//int  min(int a, int b) {
+//	int mini;
+//	if (a < b) { mini = a; }
+//	else
+//	{
+//		mini = b;
+//	}
+//	return mini;
+//}//取最小值的函数
+//int main() {
+//	int x = 6, y = 18,ret=0;
+//	int mini=min(x, y);
+//	for (int i = 1; i <=mini; i++)
+//	{
+//		if (x % i == 0&& y%i==0) {
+//			 ret = i;
+//		
+//	     }
+//
+//	}printf("%d",ret);
+//
+//
+//
+//	return 0;
+//}
+//
+int ZZXC(int a, int b) {//辗转相除法求最大公约数
+
+	while (b > 0) {
+		int Remainder = a % b;
+		a = b;
+		b = Remainder;
+	}
+	return a;
+}
+
+int main() {//一下是辗转相除法
+	//辗转相除法求公约数
+	//1，如果b=0，计算结束，a就是最大公约数
+	//2，否则，计算a/b的余数，让a=b而b等于那个余数，并且回到第一步
+	int x, y;
+	scanf("%d %d",&x,&y);
+	int Common_Divisor=ZZXC(x, y);
+	printf("%d",Common_Divisor);
+
+
+
+	return 0;
+}
